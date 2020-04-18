@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenador de números</title>
+</head>
+<body>
+    <div>
+        <label for="numerosInseridos">Insira os números abaixo</label><br>
+        <input type="text" id="numerosInseridos" placeholder="Insira os números">
+        <button type="button" onclick="inserir()">Inserir</button>
+        <button type="button" onclick="mostrar()">Mostrar</button>
+        <p id="first"></p>
+    </div>
+    <div>
+        <button type="button" onclick="ordenarNumeros()">Ordenar</button>
+        <p id="second"></p>
+    </div>
+    <script>
+        const numerosDesordenados = [];
+
+        function inserir(){
+            numerosDesordenados.push(document.getElementById('numerosInseridos').value);
+            console.log(document.getElementById('numerosInseridos').value + ' inserido');
+            document.getElementById('numerosInseridos').value = '';
+        }
+
+        function mostrar(){
+            const firstP = document.getElementById('first');
+            numerosDesordenados.forEach(element => {
+                firstP.innerHTML += element + ' ';
+            });
+            
+        }
+
+        function ordenarNumeros(){
+            const secondP = document.getElementById('second').innerHTML = 
+            numerosDesordenados.sort(function(a,b){return a-b;});
+        }
+        
+    </script>
+</body>
+</html>
